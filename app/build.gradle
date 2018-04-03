@@ -1,0 +1,110 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.transitclone"
+        minSdkVersion 15
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            // buildConfigField "int", "FOO", "52"
+            buildConfigField "String", "SERVER_URL", "\"https://maps.googleapis.com/\""
+            buildConfigField "String", "DIRECTION_GOOGLE_SERVER_KEY", "\"AIzaSyD-8ALsJkLeDUfwIMo_wg03wbWGc4Q-0MI\""
+            // buildConfigField "boolean", "LOG", "false"
+        }
+        debug {
+            // buildConfigField "int", "FOO", "42"
+            buildConfigField "String", "SERVER_URL", "\"https://maps.googleapis.com/\""
+            buildConfigField "String", "DIRECTION_GOOGLE_SERVER_KEY", "\"AIzaSyD-8ALsJkLeDUfwIMo_wg03wbWGc4Q-0MI\""
+
+            // buildConfigField "boolean", "LOG", "true"
+        }
+
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
+}
+
+
+ext {
+    supportVersion = "26.1.0"
+    daggerVersion = "2.9"
+    okHttpVersion = "3.9.1"
+    retrofitVersion = "2.3.0"
+    calligraphyVerion = "2.2.0"
+    rxJavaVersion = "1.2.7"
+
+}
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:27.0.2'
+    implementation 'com.android.support:design:27.0.2'
+    implementation 'com.android.support:design:27.0.2'
+
+    implementation 'com.android.support:cardview-v7:27.0.2'
+
+    compile 'com.facebook.stetho:stetho:1.3.1'
+    compile 'com.facebook.stetho:stetho-okhttp3:1.3.1'
+
+    implementation 'com.google.android.gms:play-services-maps:11.8.0'
+    implementation 'com.google.android.gms:play-services-location:11.8.0'
+    implementation 'com.google.android.gms:play-services-places:11.8.0'
+
+    implementation 'com.mikepenz:fastadapter:3.0.5@aar'
+    implementation 'com.mikepenz:fastadapter-commons:3.0.5@aar'
+    implementation 'com.mikepenz:fastadapter-extensions:3.0.5@aar'
+    implementation 'com.mikepenz:materialize:1.1.2@aar'
+
+
+    compile 'com.github.hotchemi:permissionsdispatcher:3.1.0'
+    annotationProcessor 'com.github.hotchemi:permissionsdispatcher-processor:3.1.0'
+    compile 'com.google.maps.android:android-maps-utils:0.5+'
+    compile 'uk.co.chrisjenx:calligraphy:2.3.0'
+    //miscellaneous
+    compile 'com.flipboard:bottomsheet-core:1.5.3'
+    compile 'com.flipboard:bottomsheet-commons:1.5.3'
+
+    compile 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+
+    //ok Http
+    compile "com.squareup.okhttp3:okhttp:$okHttpVersion"
+    compile "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
+
+
+    //retrofit
+    compile "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+    compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    compile "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    compile 'com.squareup.retrofit2:converter-scalars:2.3.0'
+
+
+    //dragger
+    compile "com.google.dagger:dagger:$daggerVersion"
+    annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
+
+
+    //rx java
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    compile 'io.reactivex.rxjava2:rxjava:2.1.9'
+
+    compile 'pl.charmas.android:android-reactive-location2:2.1@aar'
+
+    compile 'com.jaeger.statusbarutil:library:1.4.0'
+}

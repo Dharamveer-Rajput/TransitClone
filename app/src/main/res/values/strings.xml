@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MTR Transit</string>
+    <string name="title_activity_maps">Map</string>
+
+    <string name="button_allow">Allow</string>
+    <string name="button_deny">Deny</string>
+    <string name="permission_camera_rationale">Please Allow to Automatically prefill the OTP to remove human errors and for fast registration</string>
+    <string name="permission_location_rationale">Allow us to find your exact location for pickup and fast experience</string>
+
+</resources>
